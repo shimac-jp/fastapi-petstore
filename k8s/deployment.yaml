@@ -29,22 +29,7 @@ spec:
         - env:
           - name: INGRESS_HOST
           - name: PROTOCOLS
-          - name: STT_APIKEY
-            valueFrom:
-              secretKeyRef: 
-                name: stt-apikey
-                key: STT_APIKEY
-          - name: STT_URL
-            valueFrom:
-              configMapKeyRef: 
-                name: stt-config
-                key: STT_URL
-          - name: LOG_LEVEL
-            valueFrom:
-              configMapKeyRef: 
-                name: stt-config
-                key: LOG_LEVEL
-          image: jp.icr.io/showcase/cloud-native-developer
+          image: jp.icr.io/showcase-test/cloud-native-developer
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
