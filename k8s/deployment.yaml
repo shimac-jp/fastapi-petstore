@@ -29,7 +29,7 @@ spec:
         - env:
           - name: INGRESS_HOST
           - name: PROTOCOLS
-          image: jp.icr.io/showcase-test/cloud-native-developer
+          image:  quay.io/yukihiro_azuma1_ibm/cloud-native-developer
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
