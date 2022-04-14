@@ -32,7 +32,7 @@ tags_metadata = [{
     'description': 'ペット'
 }] 
 
-app = FastAPI(title='ペットストア', version='0.1.0', description=description, openapi_tags=tags_metadata)
+app = FastAPI(title='ペットストア', version='0.1.1', description=description, openapi_tags=tags_metadata)
 
 
 
