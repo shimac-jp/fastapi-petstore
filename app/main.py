@@ -2,10 +2,15 @@ from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.exceptions import RequestValidationError
+from pathlib import Path
+from dotenv import load_dotenv
 
 # 開発モジュール
 from app.routers import pets_router
 
+# 環境変数のロード
+env_path = Path('./app/configs') / '.env.default'
+load_dotenv(dotenv_path=env_path, override=False, encoding='utf-8')
 
 description = """
 ## ベースURL、ポート番号
@@ -28,6 +33,7 @@ tags_metadata = [{
 }] 
 
 app = FastAPI(title='ペットストア', version='0.1.0', description=description, openapi_tags=tags_metadata)
+
 
 
 @app.exception_handler(StarletteHTTPException)
