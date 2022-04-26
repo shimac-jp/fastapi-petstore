@@ -24,6 +24,6 @@ async def get_pets(
     # pet_summaries = PetsRepo().get_pets()
     pet_summaries = [
         PetSummary(pet_id='1', name='tama', type='cat'),
-        PetSummary(pet_id='2', name='kuro', type='cat' )]
+        PetSummary(pet_id='2', name='shiro', type='cat' )]
 
     return pet_summaries
