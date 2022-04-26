@@ -55,6 +55,21 @@ commands:
       command: |
         cd ${CHE_PROJECTS_ROOT}/fastapi-petstore && \
         ~/.local/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+  - name: debug remote python fastapi application
+    actions:
+      - type: vscode-launch
+        referenceContent: |
+          {
+            "version": "0.2.0",
+            "configurations": [
+              {
+                  "name": "Server Remote Debug",
+                  "type": "python",
+                  "request": "attach",
+                  "port": 8000
+              }
+            ]
+          }
   - name: 1. prepare database
     actions:
     - type: exec
