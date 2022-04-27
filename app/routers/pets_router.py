@@ -3,7 +3,7 @@ from fastapi import APIRouter, Query
 
 # 開発モジュール
 from app.models.pets import PetSummary
-
+from app.infra.db.pets.pets_repo import PetsRepo
 
 router = APIRouter()
 
@@ -21,8 +21,9 @@ async def get_pets(
         name (Optional[str], optional): [description]. Defaults to None.
         type (Optional[str], optional): [description]. Defaults to None.
     """
-    pets = [
+    # pet_summaries = PetsRepo().get_pets()
+    pet_summaries = [
         PetSummary(pet_id='1', name='tama', type='cat'),
         PetSummary(pet_id='2', name='shiro', type='cat' )]
 
-    return pets
+    return pet_summaries

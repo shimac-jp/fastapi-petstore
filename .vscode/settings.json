@@ -1,3 +1,29 @@
 {
-    "python.pythonPath": "/Users/shimac@jp.ibm.com/.pyenv/versions/3.8.5/bin/python"
+    "[python]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4, // インデントは空白4つ
+    },
+    "python.linting.enabled": true, // Linterを使う
+    "python.linting.pylintEnabled": false, // Linterにpylintは使わない
+    "python.linting.flake8Enabled": true, // Linterにflake8を使う
+    "python.linting.pydocstyleEnabled": false, // Linterにpydocstyleを使わない
+    "python.linting.pycodestyleEnabled": false, // Linterにpycodestyleを使わない
+    "python.linting.lintOnSave": true, // ファイル保存時にLinterでチェックする
+    "python.linting.flake8Args": [
+        "--max-line-length=110", //1行あたりの最大文字数
+        "--max-complexity=10" // 複雑度は10を閾値とする
+    ],
+    "python.formatting.autopep8Path": "autopep8",
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": [
+        "--indent-size",
+        "4",
+        "--max-line-length",
+        "110",
+        "--aggressive",
+        "--aggressive"
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "python.pythonPath": "/Users/shimac@jp.ibm.com/.pyenv/versions/3.8.5/bin/python",
 }
