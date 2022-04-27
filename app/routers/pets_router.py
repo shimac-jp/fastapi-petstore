@@ -23,6 +23,6 @@ async def get_pets(
     """
     pets = [
         PetSummary(pet_id='1', name='tama', type='cat'),
-        PetSummary(pet_id='2', name='kuro', type='cat' )]
+        PetSummary(pet_id='2', name='shiro', type='cat' )]
 
     return pets
