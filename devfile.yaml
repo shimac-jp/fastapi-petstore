@@ -1,6 +1,6 @@
 apiVersion: 1.0.0
 metadata:
-  name: fastapi-petstore
+  generateName: fastapi-petstore
 attributes:
   persistVolumes: 'false'
 projects:
