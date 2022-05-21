@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: FastAPI",
+            "name": "Local Debug",
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
@@ -13,6 +13,19 @@
                 "app.main:app"
             ],
             "jinja": true
+        },
+        {
+            "name": "Remote Debug for Local Process",
+            "type": "python",
+            "request": "attach",
+            "host": "localhost",
+            "port": 5678,
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "${workspaceFolder}"
+                }
+            ]
         },
     ]
 }

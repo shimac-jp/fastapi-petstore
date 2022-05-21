@@ -32,3 +32,10 @@ curl http://localhost:8000/pets
 
 * レスポンス
 [{"pet_id":"1","name":"tama","type":"cat"},{"pet_id":"2","name":"kuro","type":"cat"}]
+
+# リモートデバッグ
+## ローカルでアプリ起動
+python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+## デバッガーの接続
+VSCodeのデバッグ構成（Remote Debug for Local Process）を実行する
