@@ -15,7 +15,20 @@
             "jinja": true
         },
         {
-            "name": "Remote Debug for Local Process",
+            "name": "Remote Debug for CodeReady",
+            "type": "python",
+            "request": "attach",
+            "host": "localhost",
+            "port": 5678,
+            "pathMappings": [
+                {
+                    "localRoot": "${CHE_PROJECTS_ROOT}",
+                    "remoteRoot": "${CHE_PROJECTS_ROOT}"
+                }
+            ]
+        },
+        {
+            "name": "Remote Debug for Local",
             "type": "python",
             "request": "attach",
             "host": "localhost",
@@ -26,6 +39,6 @@
                     "remoteRoot": "${workspaceFolder}"
                 }
             ]
-        },
+        }
     ]
 }
