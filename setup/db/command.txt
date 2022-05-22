@@ -1,0 +1,5 @@
+MySQLコンソールの起動は下記を実行
+※-pの後、スペースを開けずに、パスワードを設定
+
+mysql -u appuser -ppassword
+
