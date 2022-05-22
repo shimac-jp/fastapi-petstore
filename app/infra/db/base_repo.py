@@ -7,7 +7,7 @@ import os
 class BaseRepo:
     def __init__(self):
         self.HOST = os.environ['DB_HOST']
-        self.PORT = os.environ['DB_PORT']
+        self.PORT = os.environ['DB_PORT_NUMBER']
         self.DATABASE = os.environ['DB_DATABASE']
         self.USERNAME = os.environ['DB_USERNAME']
         self.PASSWORD = os.environ['DB_PASSWORD']
