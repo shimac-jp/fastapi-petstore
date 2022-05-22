@@ -3,3 +3,5 @@ uvicorn==0.13.3
 mysql-connector-python==8.0.23
 python-dotenv == 0.17.1
 debugpy == 1.6.0
+flake8 == 4.0.1
+autopep8 == 1.6.0
