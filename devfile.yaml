@@ -1,6 +1,6 @@
 apiVersion: 1.0.0
 metadata:
-  name: fastapi-petstore
+  generateName: fastapi-petstore-
 attributes:
   persistVolumes: 'false'
 projects:
@@ -8,3 +8,72 @@ projects:
     source:
       location: 'https://github.com/shimac-jp/fastapi-petstore.git'
       type: github
+components:
+  - type: chePlugin
+    id: ms-python/python/latest
+    preferences:
+      python.globalModuleInstallation: true
+  - type: dockerimage
+    alias: python
+    image: 'registry.redhat.io/codeready-workspaces/plugin-java8-rhel8@sha256:8cb1e495825051b83cf903bb317e55823a6f57b3bad92e9407dc8fa59c24c0cc'
+    memoryLimit: 512Mi
+    mountSources: true
+    volumes:
+      - name: venv
+        containerPath: /home/jboss/.venv
+    endpoints:
+      - name: 'restapi'
+        port: 8000
+        attributes:
+          discoverable: "true"
+          public: "true"
+      - name: 'debugpy'
+        port: 5678
+        attributes:
+          discoverable: "true"
+          public: "false"
+  - type: dockerimage
+    alias: mysql
+    image: quay.io/eclipse/che--centos--mysql-57-centos7:latest-e08ee4d43b7356607685b69bde6335e27cf20c020f345b6c6c59400183882764
+    env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: password
+      - name: MYSQL_USER
+        value: appuser
+      - name: MYSQL_PASSWORD
+        value: password
+      - name: MYSQL_DATABASE
+        value: petdb
+      - name: PS1
+        value: $(echo ${0})\\$
+    memoryLimit: 300Mi
+    endpoints:
+      - name: 'db'
+        port: 3306
+        attributes:
+          discoverable: "true"
+          public: "true"
+    mountSources: true
+commands:
+  - name: 1. pip3 install
+    actions:
+    - type: exec
+      component: python
+      command: |
+        pip3 install -r ${CHE_PROJECTS_ROOT}/fastapi-petstore/app/requirements.txt --user
+  - name: 2. run application with debugpy
+    actions:
+    - type: exec
+      component: python
+      command: |
+        cd ${CHE_PROJECTS_ROOT}/fastapi-petstore && \
+        python -m debugpy --listen 0.0.0.0:5678 --wait-for-client \
+        -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+  - name: 1. prepare database
+    actions:
+    - type: exec
+      component: mysql
+      command: |
+        /opt/rh/rh-mysql57/root/usr/bin/mysql -u root petdb < ${CHE_PROJECTS_ROOT}/fastapi-petstore/setup/db/create_tables.sql && \
+        /opt/rh/rh-mysql57/root/usr/bin/mysql -u root petdb < ${CHE_PROJECTS_ROOT}/fastapi-petstore/setup/db/insert_data.sql && \
+        echo -e "\e[32mDone.\e[0m Database petdb was configured!"
