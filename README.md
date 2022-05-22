@@ -54,6 +54,18 @@ curl http://localhost:8000/pets
 
     VSCodeのデバッグ構成（Remote Debug for CodeReady）を実行する
 
+* コード修正後のアプリ再起動
+
+    タスクを停止すると、アプリは停止されるが、debugpyが起動したままでポートを掴んでいる
+    そのため、pythonコンテナに入って、debugpyのプロセスをkillする
+    ```
+    [jboss@workspacesri9s5e4q37x99tv fastapi-petstore]$ ps -ef|grep debugpy
+    jboss        46      1  0 12:42 ?        00:00:00 /usr/bin/python /home/jboss/.local/lib/python3.8/site-packages/debugpy/adapter --for-server 35394 --host 0.0.0.0 --port 5678 --server-access-token 41652595eb6e5b6790cae584a943fe17e8d7f644acf42984022089481b017ee0
+    jboss       107     87  0 12:45 pts/1    00:00:00 grep --color=auto debugpy
+    
+    [jboss@workspacesri9s5e4q37x99tv fastapi-petstore]$ kill -9 46
+    ```
+
 # テスト
 * プロジェクトルートから下記のように実行する
 ```
