@@ -24,7 +24,7 @@ class PetsRepo():
                                type=row['type']))
             return pet_summaries
         except Exception as e:
-            self.base_repo.exception_handler()
+            self.base_repo.exception_handler(e)
             raise e
         finally:
             self.base_repo.clean_up()

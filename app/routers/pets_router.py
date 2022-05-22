@@ -21,9 +21,9 @@ async def get_pets(
         name (Optional[str], optional): [description]. Defaults to None.
         type (Optional[str], optional): [description]. Defaults to None.
     """
-    # pet_summaries = PetsRepo().get_pets()
-    pet_summaries = [
-        PetSummary(pet_id='1', name='tama', type='cat'),
-        PetSummary(pet_id='2', name='shiro', type='cat' )]
+    pet_summaries = PetsRepo().get_pets()
+    # pet_summaries = [
+    #     PetSummary(pet_id='1', name='tama', type='cat'),
+    #     PetSummary(pet_id='2', name='shiro', type='cat' )]
 
     return pet_summaries
