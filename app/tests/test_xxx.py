@@ -8,7 +8,6 @@ def test_get_pets():
 
 
 def test_get_pets2():
-    time.sleep(5)
     a = 1
     b = 1
     assert a == b
