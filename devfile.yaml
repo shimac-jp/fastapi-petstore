@@ -21,17 +21,6 @@ components:
     volumes:
       - name: venv
         containerPath: /home/jboss/.venv
-    endpoints:
-      - name: 'restapi'
-        port: 8000
-        attributes:
-          discoverable: "true"
-          public: "true"
-      - name: 'debugpy'
-        port: 5678
-        attributes:
-          discoverable: "true"
-          public: "false"
   - type: dockerimage
     alias: mysql
     image: quay.io/eclipse/che--centos--mysql-57-centos7:latest-e08ee4d43b7356607685b69bde6335e27cf20c020f345b6c6c59400183882764
@@ -47,21 +36,9 @@ components:
       - name: PS1
         value: $(echo ${0})\\$
     memoryLimit: 300Mi
-    endpoints:
-      - name: 'db'
-        port: 3306
-        attributes:
-          discoverable: "true"
-          public: "true"
     mountSources: true
 commands:
-  - name: 1. pip3 install
-    actions:
-    - type: exec
-      component: python
-      command: |
-        pip3 install -r ${CHE_PROJECTS_ROOT}/fastapi-petstore/app/requirements.txt --user
-  - name: 2. run application with debugpy
+  - name: run application by debugpy
     actions:
     - type: exec
       component: python
@@ -69,7 +46,7 @@ commands:
         cd ${CHE_PROJECTS_ROOT}/fastapi-petstore && \
         python -m debugpy --listen 0.0.0.0:5678 --wait-for-client \
         -m uvicorn app.main:app --host 0.0.0.0 --port 8000
-  - name: 1. prepare database
+  - name: prepare database
     actions:
     - type: exec
       component: mysql
