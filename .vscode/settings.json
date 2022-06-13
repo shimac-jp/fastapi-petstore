@@ -1,7 +1,7 @@
 {
     "[python]": {
         "editor.detectIndentation": false,
-        "editor.tabSize": 4, // インデントは空白4つ
+        "editor.tabSize": 4 // インデントは空白4つ
     },
     "python.linting.enabled": true, // Linterを使う
     "python.linting.pylintEnabled": false, // Linterにpylintは使わない
@@ -23,7 +23,5 @@
         "--aggressive",
         "--aggressive"
     ],
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file",
-    "python.pythonPath": "/Users/shimac@jp.ibm.com/.pyenv/versions/3.8.5/bin/python",
+    "editor.formatOnSave": true
 }
