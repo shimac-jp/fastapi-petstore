@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Query
 
 router = APIRouter()
-@router.get('/', status_code=200, summary='ペット一覧取得')
+@router.get('/', status_code=200, summary='ヘルスチェック')
 async def get_health():
-    """api状態確認用.
+    """ヘルスチェック.
 
     """
 
