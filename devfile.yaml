@@ -38,7 +38,13 @@ components:
     memoryLimit: 300Mi
     mountSources: true
 commands:
-  - name: run application by debugpy
+  - name: 1. pip install
+    actions:
+    - type: exec
+      component: python
+      command: |
+        pip3 install -r ${CHE_PROJECTS_ROOT}/fastapi-petstore/app/requirements.txt --user
+  - name: 2. run application by debugpy
     actions:
     - type: exec
       component: python
