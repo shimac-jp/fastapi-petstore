@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.8-buster
+FROM public.ecr.aws/docker/library/python:3.8-buster
 
 RUN mkdir -p /app
 
