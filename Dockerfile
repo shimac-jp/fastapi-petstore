@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM docker.io/library/python:3.8-buster
 
 RUN mkdir -p /app
 
