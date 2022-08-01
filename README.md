@@ -79,3 +79,4 @@ collected 1 item
 app/tests/test_pets.py .                                                                                                                                                                                              [100%]
 
 ====================== 1 passed in 0.01s ======================
+
