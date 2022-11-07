@@ -36,6 +36,8 @@ tags_metadata = [{
 }] 
 
 app = FastAPI(title='ペットストア', version='0.2.0', description=description, openapi_tags=tags_metadata)
+# DevSpacesではプロキシされる関係で、fqdnの後にパスが設定される。docsアクセス時に設定されたパスをつけてopenapi.jsonをとれるように、FastAPIアプリにopenapi_prefixをセットする必要がある
+# app = FastAPI(title='ペットストア', version='0.2.0', description=description, openapi_tags=tags_metadata, openapi_prefix="/workspacef5f6ac0990884648/theia-ide/13133")
 
 
 
