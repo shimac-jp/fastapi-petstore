@@ -14,7 +14,6 @@ attributes:
         "ms-python/python"
       ]
     }
-  controller.devfile.io/storage-type: ephemeral
   metadata-name-field: generateName
   metadata-name-original-value: fastapi-petstore-
   persistVolumes: 'false'
