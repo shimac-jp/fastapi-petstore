@@ -16,7 +16,6 @@ attributes:
     }
   metadata-name-field: generateName
   metadata-name-original-value: fastapi-petstore-
-  persistVolumes: 'false'
 projects:
   - git:
       remotes:
