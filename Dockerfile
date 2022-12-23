@@ -5,7 +5,6 @@ RUN mkdir -p /app
 COPY ./app /app
 
 RUN pip install -r /app/requirements.txt
-RUN pytest app
 
 EXPOSE 8000
 
