@@ -1,3 +1,9 @@
+import sys
+import os
+path = os.path.join(os.path.dirname(__file__), '../../')
+sys.path.append(path)
+print(sys.path)
+
 from app.utils.pet_list import getAllPets, queryPets
 
 
